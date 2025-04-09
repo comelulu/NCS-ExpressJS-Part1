@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <!-- 조건문 시작: user가 존재할 경우 -->
+    <% if (user) { %>
+      <!-- user.name 출력 -->
+      <p><%= user.name %>님, 반갑습니다!</p>
+    <% } else { %>
+      <!-- user가 없으면 로그인 요청 메시지 -->
+      <p>로그인 해주세요.</p>
+    <% } %>
+  </body>
+</html>

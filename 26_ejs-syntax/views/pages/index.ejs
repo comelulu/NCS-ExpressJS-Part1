@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <!-- 제목 출력: 서버에서 전달된 title 변수 사용 -->
+    <h1><%= title %></h1>
+
+    <!-- 설명 출력 -->
+    <p>이 페이지는 <%= description %> 입니다.</p>
+
+    <!-- 조건문: user 객체가 존재할 때만 메시지 출력 -->
+    <% if (user) { %>
+      <!-- user.name 출력 -->
+      <p><%= user.name %>님, 반갑습니다!</p>
+    <% } else { %>
+      <!-- user가 없을 경우 출력 -->
+      <p>로그인 해주세요.</p>
+    <% } %>
+
+    <!-- 반복문 시작: users 배열을 하나씩 순회 -->
+    <h2>회원 목록</h2>
+    <ul>
+      <% users.forEach(user => { %>
+        <!-- 각 사용자의 이름과 나이를 출력 -->
+        <li><%= user.name %> - <%= user.age %>세</li>
+      <% }); %>
+    </ul>
+  </body>
+</html>

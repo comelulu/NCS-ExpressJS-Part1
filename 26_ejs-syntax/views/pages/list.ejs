@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2>회원 목록</h2>
+
+    <!-- 반복문 시작: users 배열을 하나씩 순회 -->
+    <ul>
+      <% users.forEach(user => { %>
+        <!-- 각 사용자 정보를 <li> 요소로 출력 -->
+        <li><%= user.name %> - <%= user.age %>세</li>
+      <% }); %>
+    </ul>
+  </body>
+</html>

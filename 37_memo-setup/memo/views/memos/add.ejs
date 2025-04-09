@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add New Memo</title>  <!-- 페이지 제목 -->
+  </head>
+  <body>
+    <h1>Add New Memo</h1>  <!-- "새로운 메모 추가" 제목 -->
+
+    <!-- 메모 추가 폼 -->
+    <form action="/memos/add" method="POST">  <!-- 새로운 메모를 추가하는 POST 폼 -->
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" required />  <!-- 제목 입력 필드 -->
+      <br />
+      <label for="content">Content:</label>
+      <textarea id="content" name="content" required></textarea>  <!-- 내용 입력 필드 -->
+      <br />
+      <button type="submit">Add Memo</button>  <!-- 메모 추가 버튼 -->
+    </form>
+  </body>
+</html>

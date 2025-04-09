@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>  <!-- 페이지 제목 -->
+  </head>
+  <body>
+    <h2>Register</h2>  <!-- "회원가입" 제목 -->
+
+    <% if (typeof error !== 'undefined') { %>  <!-- error가 존재하면 -->
+    <p style="color: red"><%= error %></p>  <!-- 오류 메시지를 빨간색으로 출력 -->
+    <% } %>
+
+    <form action="/users/register" method="POST" id="registerForm">  <!-- 회원가입 POST 폼 -->
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />  <!-- 사용자 이름 입력 필드 -->
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          required />  <!-- 비밀번호 입력 필드 -->
+      </div>
+      <button type="submit">Register</button>  <!-- 회원가입 버튼 -->
+    </form>
+
+    <script>
+      // 이벤트 리스너 추가
+      document
+        .getElementById("username")
+        .addEventListener("input", hideError);  // 오류 메시지 숨김
+
+      function hideError() {
+        document.querySelector("p").style.display = "none";  // 오류 메시지 숨기기
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memo List</title>  <!-- 페이지 제목 -->
+  </head>
+  <body>
+    <h1>Memo List</h1>  <!-- 메모 목록 제목 -->
+
+    <!-- 검색 폼 추가 -->
+    <form action="/memos" method="GET">  <!-- 메모 목록에서 제목 또는 내용을 검색할 수 있는 폼 -->
+      <input type="text" name="search" placeholder="Search memos" />  <!-- 검색 입력 필드 -->
+      <button type="submit">Search</button>  <!-- 검색 버튼 -->
+    </form>
+
+    <ul>
+      <% memos.forEach(function(memo) { %>  <!-- 각 메모를 리스트로 출력 -->
+      <li>
+        <h2><%= memo.title %></h2>  <!-- 메모 제목 출력 -->
+        <p><%= memo.content %></p>  <!-- 메모 내용 출력 -->
+        <a href="/memos/edit/<%= memo.id %>">Edit</a>  <!-- 메모 수정 페이지로 가는 링크 -->
+        <form
+          action="/memos/delete/<%= memo.id %>"  <!-- 메모 삭제 경로 -->
+          method="POST"
+          style="display: inline">
+          <button type="submit">Delete</button>  <!-- 메모 삭제 버튼 -->
+        </form>
+      </li>
+      <% }); %>  <!-- 반복문 종료 -->
+    </ul>
+
+    <a href="/memos/add">Add New Memo</a>  <!-- 새로운 메모 추가 페이지로 가는 링크 -->
+    
+    <% if (authError) { %>  <!-- 인증 오류가 있을 경우 -->
+    <script>
+      alert("You do not have permission to perform this action.");
+      window.history.replaceState(
+        null,
+        null,
+        window.location.pathname
+      );
+    </script>
+    <% } %>  <!-- 인증 오류 메시지 출력 -->
+  </body>
+</html>

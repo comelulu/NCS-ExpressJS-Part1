@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <%- include("partials/head.ejs") %>
+
+  <body>
+    <h1>Todolist</h1>
+
+    <h3>Add a new todo</h3>
+
+    <!-- 새로운 todo 추가 폼 -->
+    <form action="/" method="post">
+      <input type="text" name="text" />
+      <input type="submit" />
+    </form>
+
+    <ul>
+      <!-- todos 배열을 순회하며 출력 -->
+      <% for (todo of todos) { %>
+        <li class="todo"><%= todo.text %></li>
+      <% } %>
+    </ul>
+  </body>
+</html>

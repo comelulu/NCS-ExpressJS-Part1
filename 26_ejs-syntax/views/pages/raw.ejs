@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>공지사항</h1>
+
+    <!-- <%- %> 사용 시 HTML 태그가 그대로 출력됨 -->
+    <!-- 예: <strong>공지</strong> => 굵은 글씨로 표시됨 -->
+    <!-- 주의: 사용자 입력에는 절대 사용하지 말 것 (XSS 위험) -->
+    <div><%- noticeHtml %></div>
+  </body>
+</html>
